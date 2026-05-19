@@ -1,13 +1,14 @@
-
+import { TypeAnimation } from 'react-type-animation'
+import { motion } from "framer-motion";
 export default function App() {
   return (
     <div className="min-h-screen bg-slate-950 text-white">
-      <header className="p-6 flex justify-between items-center border-b border-slate-800">
+      <header className="sticky top-0 z-50 p-6 flex justify-between items-center border-b border-cyan-500/20 backdrop-blur-lg bg-slate-950/70">
         <h1 className="text-3xl font-bold text-cyan-400">
           Sourav.dev
         </h1>
 
-  <nav className="hidden md:flex gap-6">
+  <nav className="flex flex-wrap gap-6 justify-center">
   <a href="#home" className="hover:text-cyan-400">
     Home
   </a>
@@ -24,10 +25,13 @@ export default function App() {
     Contact
   </a>
 </nav>
-      </header>
+    </header>
 
-     <section
+<motion.section
   id="home"
+  initial={{ opacity: 0, y: 50 }}
+  animate={{ opacity: 1, y: 0 }}
+  transition={{ duration: 1 }}
   className="px-8 py-24 max-w-7xl mx-auto"
 >
   <div className="grid md:grid-cols-2 items-center gap-16">
@@ -42,8 +46,22 @@ export default function App() {
       </h2>
 
       <p className="text-slate-300 text-xl leading-9 mb-8">
-        Frontend and .NET Developer passionate about building
-        modern, responsive and professional web applications.
+       <TypeAnimation
+  sequence={[
+    'Frontend Developer',
+    2000,
+    '.NET Developer',
+    2000,
+    'React Developer',
+    2000,
+    'Full Stack Developer',
+    2000,
+  ]}
+  wrapper="span"
+  speed={50}
+  repeat={Infinity}
+  className="text-cyan-300 text-xl font-semibold"
+/>
       </p>
 
       <div className="flex gap-4">
@@ -52,19 +70,39 @@ export default function App() {
         </button>
 
         <a
-          href="/resume.pdf"
+          href="/portfolio-website/public/Java, Python, JavaScript, TypeScript, SQL, C++, React Angular, HTML5, CSS3, Bootstrap, jQuery Spring Boot, Hibernate, REST APIs, Microservices, .NET, PHP MySQL, PostgreSQL, MongoDB, Cassandra, Fir (1).pdf"
           download
-          className="border border-cyan-400 text-cyan-400 px-8 py-4 rounded-xl hover:bg-cyan-400 hover:text-black transition"
-        >
+          className="bg-cyan-500 px-6 py-3 rounded-xl font-bold hover:bg-cyan-400 transition"
+      >
           Download Resume
         </a>
       </div>
 
-      <div className="flex gap-6 mt-8 text-cyan-400 font-semibold">
-        <a href="#">GitHub</a>
-        <a href="#">LinkedIn</a>
-        <a href="#">Instagram</a>
-      </div>
+      <div className="flex gap-4 mt-6 justify-center">
+       <a
+         href="https://github.com/YOUR_GITHUB_USERNAME"
+         target="_blank"
+         className="bg-cyan-500 px-4 py-2 rounded-lg hover:bg-cyan-400 transition"
+       >
+        GitHub
+        </a>
+
+  <a
+    href="https://linkedin.com/in/YOUR_LINKEDIN"
+    target="_blank"
+    className="bg-cyan-500 px-4 py-2 rounded-lg hover:bg-cyan-400 transition"
+  >
+    LinkedIn
+  </a>
+
+  <a
+    href="https://instagram.com/YOUR_INSTAGRAM"
+    target="_blank"
+    className="bg-cyan-500 px-4 py-2 rounded-lg hover:bg-cyan-400 transition"
+  >
+       Instagram
+     </a>
+    </div>
     </div>
 
     {/* RIGHT SIDE */}
@@ -77,10 +115,16 @@ export default function App() {
     </div>
 
   </div>
-</section>
+</motion.section>
 
-      <section className="px-8 py-16 bg-slate-900">
-        <h3 className="text-4xl font-bold text-center mb-12">
+      <motion.section
+  className="px-8 py-16 bg-slate-900"
+  initial={{ opacity: 0, y: 80 }}
+  whileInView={{ opacity: 1, y: 0 }}
+  transition={{ duration: 0.8 }}
+  viewport={{ once: true }}
+>
+     <h3 className="text-4xl font-bold text-center mb-12">
           My Skills
         </h3>
 
@@ -96,7 +140,7 @@ export default function App() {
           ].map((skill) => (
             <div
               key={skill}
-              className="bg-slate-950 rounded-2xl overflow-hidden hover:scale-105 transition duration-300 shadow-lg shadow-cyan-500/20"
+             className="bg-slate-950 rounded-2xl overflow-hidden transform hover:-translate-y-3 hover:shadow-cyan-500/40 hover:shadow-2xl transition duration-500bg-slate-950 hover:scale-105 hover:shadow-cyan-500/40 hover:shadow-xl transition duration-300"
             >
               <h4 className="text-2xl font-semibold text-cyan-400">
                 {skill}
@@ -104,9 +148,16 @@ export default function App() {
             </div>
           ))}
         </div>
-      </section>
+      </motion.section>
 
-     <section id="about" className="px-8 py-20">
+     <motion.section
+      id="about"
+      className="px-8 py-20"
+      initial={{ opacity: 0, y: 80 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.8 }}
+      viewport={{ once: true }}
+     >
   <h3 className="text-4xl font-bold text-center mb-12">
     About Me
   </h3>
@@ -116,8 +167,14 @@ export default function App() {
      I am a passionate Frontend and .NET Developer focused on building responsive, user-friendly and modern web applications. I enjoy creating clean UI designs and solving real-world problems through code.
     </p>
   </div>
-</section>
-<section className="px-8 py-20 bg-slate-900">
+</motion.section>
+<motion.section
+  className="px-8 py-20 bg-slate-900"
+  initial={{ opacity: 0, y: 80 }}
+  whileInView={{ opacity: 1, y: 0 }}
+  transition={{ duration: 0.8 }}
+  viewport={{ once: true }}
+>
   <h3 className="text-4xl font-bold text-center mb-12">
     Projects
   </h3>
@@ -146,7 +203,7 @@ export default function App() {
       'https://images.unsplash.com/photo-1551288049-bebda4e38f71',
   },
 ].map((project) => (
-      <div
+      <motion.div
         key={project.title}
         className="bg-slate-950 rounded-2xl overflow-hidden border border-slate-800  hover:scale-105 hover:shadow-cyan-500/20 hover:shadow-2xl transition duration-300"
       >
@@ -165,13 +222,19 @@ export default function App() {
             {project.desc}
           </p>
 
-          <button className="mt-5 bg-cyan-500 px-5 py-2 rounded-xl">
+         <button className="mt-5 bg-cyan-500 px-5 py-2 rounded-xl hover:bg-cyan-400 hover:shadow-cyan-400/40 hover:shadow-xl transition duration-300">
             View Project
           </button>
         </div>
-      </div>
+      </motion.div>
     ))}
-    <section className="px-8 py-20">
+    <motion.section
+     className="px-8 py-20"
+     initial={{ opacity: 0, y: 80 }}
+     whileInView={{ opacity: 1, y: 0 }}
+     transition={{ duration: 0.8 }}
+     viewport={{ once: true }}
+    >
   <h3 className="text-4xl font-bold text-center mb-12">
     Contact Me
   </h3>
@@ -207,12 +270,14 @@ export default function App() {
       </p>
     </div>
   </div>
-</section>
+</motion.section>
   </div>
-  <footer className="text-center py-6 text-slate-400 border-t border-slate-800 mt-20">
-  © 2026 Sourav.dev | Built with React & Tailwind CSS
+  <footer className="text-center py-8 bg-slate-950 border-t border-cyan-500/20">
+  <p className="text-slate-400">
+    © 2026 Sourav Sarkar. All rights reserved.
+  </p>
 </footer>
-</section>
+</motion.section>
     </div>
    
   )
